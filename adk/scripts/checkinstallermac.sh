@@ -19,8 +19,13 @@ else
 fi
 
 # Start minikube
-minikube start
+var_kubeconfig=$(minikube status --output json | jq -r ".Kubeconfig")
+if [ "$var_kubeconfig" = Configured ]; then
+  echo "---- Minikube already running in start mode ----"
+else
+  minikube start
+fi
 
 # Check status of minikube
 echo "---- Minikube status ----"
-minikube status --output json
+echo "$(minikube status --output json)"
