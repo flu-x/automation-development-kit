@@ -9,8 +9,4 @@ class Installer(object):
         os_type = self.ostype.osname()
 
         if os_type == "macos":
-            exit_code = subprocess.call('../scripts/./checkinstallermac.sh')
-            print(exit_code)
-
-i=Installer()
-i.install_dependency_mac()
+            subprocess.call('../scripts/./checkinstallermac.sh')
