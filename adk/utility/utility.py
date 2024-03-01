@@ -1,13 +1,15 @@
-from adk.utility.logger import Logger
-
+import json
 import os
 import stat
-import json
+
+from adk.utility.logger import Logger
+
 
 class Utility(object):
 
     def __init__(self):
         self.log = Logger()
+
     def read_config(self, p_element, c_element):
         with open("../configurations/config.json", "r") as jsonobj:
             jsondata = json.load(jsonobj)
@@ -16,7 +18,7 @@ class Utility(object):
         return json_obj
 
     def set_executable_permissions(self, installation_type="macinstallationscript"):
-        file_path=""
+        file_path = ""
 
         if installation_type == "macinstallationscript":
             file_path = self.read_config("file_path", "mac_installation")

@@ -1,9 +1,12 @@
+import subprocess  #nosec
+
+from adk.utility.logger import Logger
 from adk.utility.ostype import OStype
 from adk.utility.utility import Utility
-from adk.utility.logger import Logger
-import subprocess
+
 
 class Installer(object):
+
     def __init__(self):
         self.ostype = OStype()
         self.ut = Utility()
@@ -14,7 +17,11 @@ class Installer(object):
 
         if os_type == "macos":
             self.ut.set_executable_permissions()
-            subprocess.call('../scripts/./checkinstallermac.sh')
+            subprocess.call('../scripts/./checkinstallermac.sh', shell=False)  #nosec
         if os_type == "linux":
             self.ut.set_executable_permissions("linuxinstallationscript")
-            subprocess.call('../scripts/./checkinstallerlinux.sh')
+            subprocess.call('../scripts/./checkinstallerlinux.sh', shell=False)  #nosec
+
+
+i = Installer()
+i.install_dependency()
