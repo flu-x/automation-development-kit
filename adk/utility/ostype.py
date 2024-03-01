@@ -7,6 +7,7 @@ Purpose: Get the operating system type based on linux, windows or macos
 import platform
 import sys
 
+
 class OStype:
 
     LINUX = "linux"

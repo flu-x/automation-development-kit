@@ -1,12 +1,23 @@
+import subprocess  #nosec
+
+from adk.utility.logger import Logger
 from adk.utility.ostype import OStype
-import subprocess
+from adk.utility.utility import Utility
+
 
 class Installer(object):
+
     def __init__(self):
         self.ostype = OStype()
+        self.ut = Utility()
+        self.log = Logger()
 
-    def install_dependency_mac(self):
+    def install_dependency(self):
         os_type = self.ostype.osname()
 
         if os_type == "macos":
-            subprocess.call('../scripts/./checkinstallermac.sh')
+            self.ut.set_executable_permissions()
+            subprocess.call('../scripts/minikubeinstaller/checkinstallermac.sh', shell=False)  #nosec
+        if os_type == "linux":
+            self.ut.set_executable_permissions("linuxinstallationscript")
+            subprocess.call('../scripts/minikubeinstaller/checkinstallerlinux.sh', shell=False)  #nosec

@@ -1,12 +1,14 @@
-#!/bin/zsh
+#!/bin/bash
 
-jq_status=$(jq --version | echo $?)
+jq --version
+jq_status=$?
+
 var_path=$(which minikube)
 var_unix_path="/usr/local/bin/minikube"
 
 if [ "$jq_status" -eq 0 ]; then
   echo "---- jq is already installed ----"
-#  brew upgrade jq
+  brew upgrade jq
 else
   brew install jq
 fi
@@ -19,8 +21,20 @@ else
   sudo install minikube-linux-amd64 /usr/local/bin/minikube
 fi
 
-# Start minikube
-minikube start
+# Start minikube if not already started
+var_kubeconfig=$(minikube status --output json | jq -r ".Kubeconfig")
+if [ "$var_kubeconfig" = Configured ]; then
+  echo "---- Minikube already running in start mode ----"
+else
+  minikube start
+fi
 
 # Check status of minikube
+echo "---- Minikube status ----"
 minikube status --output json
+
+echo ""
+
+# Check minikube version
+echo "---- Minikube version ----"
+minikube version --output json
