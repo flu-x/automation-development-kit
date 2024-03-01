@@ -1,6 +1,8 @@
-#!/bin/zsh
+#!/bin/bash
 
-jq_status=$(jq --version | echo $?)
+jq --version
+jq_status=$?
+
 var_path=$(which minikube)
 var_unix_path="/usr/local/bin/minikube"
 
@@ -29,4 +31,10 @@ fi
 
 # Check status of minikube
 echo "---- Minikube status ----"
-echo "$(minikube status --output json)"
+minikube status --output json
+
+echo ""
+
+# Check minikube version
+echo "---- Minikube version ----"
+minikube version --output json

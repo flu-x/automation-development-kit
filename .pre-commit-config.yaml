@@ -32,8 +32,8 @@ repos:
     hooks:
       - id: autoflake
         name: Remove unused imports from a file
-  - repo: 'https://github.com/syntaqx/git-hooks'
-    rev: v0.0.18
+  - repo: 'https://github.com/shellcheck-py/shellcheck-py'
+    rev: v0.9.0.6
     hooks:
       - id: shellcheck
         name: Linters for bash scripts used in automation

@@ -28,4 +28,4 @@ class Utility(object):
         st = os.stat(file_path)
         os.chmod(file_path, st.st_mode | stat.S_IEXEC)
 
-        self.log.log_info("---- Permission set on %s ----" % type)
+        self.log.log_info("---- Executable permission set on %s ----" % installation_type)
