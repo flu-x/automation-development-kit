@@ -1,0 +1,6 @@
+{
+  "file_path": {
+    "mac_installation": "../scripts/checkinstallermac.sh",
+    "linux_installation": "../scripts/checkinstallerlinux.sh"
+  }
+}

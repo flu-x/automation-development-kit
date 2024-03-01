@@ -18,7 +18,7 @@ else
   brew install minikube
 fi
 
-# Start minikube
+# Start minikube if not already started
 var_kubeconfig=$(minikube status --output json | jq -r ".Kubeconfig")
 if [ "$var_kubeconfig" = Configured ]; then
   echo "---- Minikube already running in start mode ----"
