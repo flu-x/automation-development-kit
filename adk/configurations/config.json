@@ -1,6 +1,6 @@
 {
   "file_path": {
-    "mac_installation": "../scripts/minikubeinstaller/checkinstallermac.sh",
-    "linux_installation": "../scripts/minikubeinstaller/checkinstallerlinux.sh"
+    "mac_installation": "adk/scripts/minikubeinstaller/checkinstallermac.sh",
+    "linux_installation": "adk/scripts/minikubeinstaller/checkinstallerlinux.sh"
   }
 }

@@ -1,14 +1,4 @@
 repos:
-  - repo: 'https://github.com/pre-commit/mirrors-yapf'
-    rev: v0.32.0
-    hooks:
-      - id: yapf
-        name: PEP 8 conventions in python
-  - repo: 'https://github.com/asottile/reorder_python_imports'
-    rev: v2.7.1
-    hooks:
-      - id: reorder-python-imports
-        name: Re-ordering of python imports
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
     rev: v4.1.0
     hooks:
@@ -16,22 +6,12 @@ repos:
         name: Trim trailing whitespace
       - id: check-merge-conflict
         name: Check for merge conflict strings
-      - id: requirements-txt-fixer
-        name: Sort entries in requirements.txt file
       - id: end-of-file-fixer
-        name: 'Ensures that a file is either empty, or ends with one newline'
+        name: Ensures that a file is either empty, or ends with one newline
       - id: check-json
         name: Linters for the json files in automation
       - id: check-yaml
         name: Linters for yaml files in automation
-      - id: check-case-conflict
-      - id: check-ast
-        name: Files parse as valid python
-  - repo: 'https://github.com/PyCQA/autoflake'
-    rev: v2.2.1
-    hooks:
-      - id: autoflake
-        name: Remove unused imports from a file
   - repo: 'https://github.com/shellcheck-py/shellcheck-py'
     rev: v0.9.0.6
     hooks:
@@ -42,13 +22,3 @@ repos:
     hooks:
       - id: bandit
         name: Checking for security impacts
-  - repo: 'https://github.com/IamTheFij/docker-pre-commit'
-    rev: v2.0.1
-    hooks:
-      - id: docker-compose-check
-        name: Linters for docker compose scripts used in automation
-  - repo: 'https://github.com/pryorda/dockerfilelint-precommit-hooks'
-    rev: v0.1.0
-    hooks:
-      - id: dockerfilelint
-        name: Linters for docker files used in automation

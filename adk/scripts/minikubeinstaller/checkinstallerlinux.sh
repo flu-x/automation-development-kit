@@ -1,17 +1,7 @@
 #!/bin/bash
 
-jq --version
-jq_status=$?
-
 var_path=$(which minikube)
 var_unix_path="/usr/local/bin/minikube"
-
-if [ "$jq_status" -eq 0 ]; then
-  echo "---- jq is already installed ----"
-  brew upgrade jq
-else
-  brew install jq
-fi
 
 # Check if minikube is installed in the system
 if [ "$var_path" = "$var_unix_path" ]; then
