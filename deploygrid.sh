@@ -3,6 +3,8 @@
 jq --version
 jq_status=$?
 
+configpath="adk/configurations/config.json"
+
 # If the os type starts with darwin then execute the installer script for mac
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     if [ "$jq_status" -eq 0 ]; then
@@ -30,18 +32,18 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
     fi
 
     # Add file permission to mac installation
-    chmod +x "$(jq -r ".file_path.linux_installation" adk/configurations/config.json)"
+    chmod +x "$(jq -r ".file_path.linux_installation" $configpath)"
 
     # Execute script to install minikube on mac
     adk/scripts/minikubeinstaller/checkinstallerlinux.sh
 fi
 
 # Deploy Selenium Hub on Kubernetes Pod
-kubectl create -f selenium-hub-deployment.yaml
+kubectl create -f "$(jq -r ".file_path.selenium-hub" $configpath)"
 
 # Deploy Kubernetes services on Kubernetes Pod
-kubectl create -f selenium-hub-svc.yaml
+kubectl create -f "$(jq -r ".file_path.selenium-hub-services" $configpath)"
 
 # Deploy Selenium Chrome and Firefox container on another pod
-kubectl create -f selenium-node-chrome-deployment.yaml
-kubectl create -f selenium-node-firefox-deployment.yaml
+kubectl create -f "$(jq -r ".file_path.selenium-node.node-chrome" $configpath)"
+kubectl create -f "$(jq -r ".file_path.selenium-node.node-firefox" $configpath)"
