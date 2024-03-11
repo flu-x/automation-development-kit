@@ -1,6 +1,12 @@
 {
   "file_path": {
-    "mac_installation": "../scripts/minikubeinstaller/checkinstallermac.sh",
-    "linux_installation": "../scripts/minikubeinstaller/checkinstallerlinux.sh"
+    "mac_installation": "adk/scripts/minikubeinstaller/checkinstallermac.sh",
+    "linux_installation": "adk/scripts/minikubeinstaller/checkinstallerlinux.sh",
+    "selenium-hub": "adk/scripts/k8sdeploygrid/hub/selenium-hub-deployment.yaml",
+    "selenium-hub-services": "adk/scripts/k8sdeploygrid/hub/selenium-hub-svc.yaml",
+    "selenium-node": {
+      "node-chrome": "adk/scripts/k8sdeploygrid/node/selenium-node-chrome-deployment.yaml",
+      "node-firefox": "adk/scripts/k8sdeploygrid/node/selenium-node-firefox-deployment.yaml"
+    }
   }
 }
