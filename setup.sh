@@ -1,11 +1,11 @@
 #!/bin/bash
 
-jq --version
-jq_status=$?
-
 configpath="adk/configurations/config.json"
 
 function install_packages() {
+  jq --version
+  jq_status=$?
+
   # If the os type starts with darwin then execute the installer script for mac
   if [[ "$OSTYPE" =~ ^darwin ]]; then
       if [ "$jq_status" -eq 0 ]; then
