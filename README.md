@@ -2,10 +2,11 @@
 
 ## Intent
 
-ADK (Automation Development Kit) is a small codebase that would help set up selenium grid on kubernetes.
-The idea is to have the selenium hub deployed in one pod and the browser driver instances deployed in
-the other pods. Have a kubernetes service created that would help in interaction between the hub and the
-nodes.
+ADK (Automation Development Kit) is a small codebase that would help
+set up selenium grid on kubernetes. The idea is to have the selenium
+hub deployed in one pod and the browser driver instances deployed in
+the other pods. Have a kubernetes service created that would help in
+interaction between the hub and the nodes.
 
 ## Selenium Grid
 
